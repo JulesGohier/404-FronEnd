@@ -10,12 +10,12 @@
         <p>
           <strong>Votre mission</strong> : Nettoyer l'océan en choisissant les bonnes améliorations pour réduire la pollution et restaurer l'équilibre écologique. Chaque action que vous sélectionnez aura un impact non seulement sur l'océan, mais aussi sur la santé humaine.
         </p>
-        <p>
-          <strong>Comment jouer</strong> :
-          - Vous pouvez choisir différentes actions pour réduire la pollution plastique, lutter contre les rejets industriels, planter des récifs coralliens, etc.
-          - Chaque amélioration affecte une partie spécifique du corps humain (poumons, cœur, foie, système immunitaire, cerveau) et améliore sa santé.
-          - Votre objectif est de nettoyer l'océan tout en restaurant un équilibre sain pour le corps humain.
-        </p>
+        <p> <strong>Comment jouer</strong></p>
+        <ul>
+          <li> - Vous pouvez choisir différentes actions pour réduire la pollution plastique, lutter contre les rejets industriels, planter des récifs coralliens, etc.</li>
+          <li> - Chaque amélioration affecte une partie spécifique du corps humain (poumons, cœur, foie, système immunitaire, cerveau) et améliore sa santé.</li>
+          <li> - Votre objectif est de nettoyer l'océan tout en restaurant un équilibre sain pour le corps humain.</li>
+        </ul>
       </div>
 
       <div class="flex justify-center mt-6">
