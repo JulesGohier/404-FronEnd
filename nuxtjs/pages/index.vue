@@ -12,9 +12,9 @@
         <span v-if="hoveredButton === 'Podcast'" class="text-white"><</span>
       </h1>
       <h1 class="font-Silkscreen text-7xl text-white">
-        <span v-if="hoveredButton === 'Reseaux'" class="text-white">></span>
-        Reseaux
-        <span v-if="hoveredButton === 'Reseaux'" class="text-white"><</span>
+        <span v-if="hoveredButton === 'Siteweb'" class="text-white">></span>
+        Site web
+        <span v-if="hoveredButton === 'Siteweb'" class="text-white"><</span>
       </h1>
     </div>
     <bottom-bar @over="handleHover"></bottom-bar>
@@ -25,9 +25,8 @@
   import { ref } from "vue";
   import RetroButton from "~/components/RetroButton.vue";
   import BottomBar from "~/components/bottomBar.vue";
-  const options = ['Jeu','Podcast','Reseaux'];
+  const options = ['Jeu','Podcast','Siteweb'];
   const hoveredButton = ref<string | null>(options[0]);
-  const timerLyreco = ref(0)
   const handleHover = (button: string | null) => {
     hoveredButton.value = button;
   };
@@ -38,7 +37,7 @@
       navigateTo('jeu');
     } else if (target == 'podcast'){
       navigateTo('podcast');
-    } else if (target == 'reseaux'){
+    } else if (target == 'siteweb'){
       navigateTo("https://404-snf.fr",{
         external: true
       });
