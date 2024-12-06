@@ -1,19 +1,25 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const props = defineProps({
+  obj: {
+    type: Object as PropType<any>,
+    required: true,
+  },
+});
+
+const emits = defineEmits<{
+  (event: "buy"): void;
+}>();
+</script>
 
 <template>
   <div
     class="size-full rounded-3xl ml-2 text-slate-900 bg-slate-500 relative"
     id="background"
   >
-    <p class="text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend
-      lacus et metus ultrices, sollicitudin faucibus orci elementum. Donec
-      laoreet enim eu ligula sodales posuere. Pellentesque vitae fermentum nibh.
-      Sed viverra mollis libero, vitae hendrerit ligula bibendum eu. Integer
-      volutpat ligula eget lacinia venenatis. Proin tempus lacinia eros, vel
-      feugiat.
+    <p v-if="obj" class="text">
+      {{ obj.description }}
     </p>
-    <button class="selectBtn">Séléctionner</button>
+    <button class="selectBtn" @click="emits('buy')">Séléctionner</button>
   </div>
 </template>
 

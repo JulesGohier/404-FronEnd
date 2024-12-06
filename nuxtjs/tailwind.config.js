@@ -16,7 +16,9 @@ module.exports = {
     },
     boxShadow: {
       custom : "0px 10px 0 var(--border)",
-      none: "0 0 #0000;"
+      none: "0 0 #0000;",
+      lg: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);",
+      "2xl": "0 25px 50px -12px rgb(0 0 0 / 0.25);"
     },
     fontFamily: {
       Silkscreen: ['Silkscreen'],

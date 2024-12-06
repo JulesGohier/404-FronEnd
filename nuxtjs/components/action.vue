@@ -1,208 +1,163 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const props = defineProps({
+  actions: Array,
+  selectedId: {
+    type: Number,
+    required: false,
+  },
+});
+const action1id = ref<number>();
+const action2id = ref<number>();
+const action3id = ref<number>();
+
+const actions1 = computed((): any => {
+  return props.actions?.filter(
+    (action: any) => action.categorie === "Protection_de_l'environnement_marin"
+  );
+});
+const actions2 = computed((): any => {
+  return props.actions?.filter(
+    (action: any) =>
+      action.categorie === "Restauration_de_la_biodiversite_marine"
+  );
+});
+const actions3 = computed((): any => {
+  return props.actions?.filter(
+    (action: any) => action.categorie === "Sensibilisation_et_education"
+  );
+});
+
+onMounted(() => {
+  const actions1Elmt = document.getElementById("actions1");
+  const action1Spans = actions1Elmt?.querySelectorAll(".action");
+
+  action1Spans?.forEach((span, index) => {
+    if (index < action1Spans.length - 1) {
+      const separator = document.createElement("span");
+      separator.classList.add("separator");
+      span.insertAdjacentElement("afterend", separator);
+    }
+  });
+
+  const actions2Elmt = document.getElementById("actions2");
+  const action2Spans = actions2Elmt?.querySelectorAll(".action");
+
+  action2Spans?.forEach((span, index) => {
+    if (index < action2Spans.length - 1) {
+      const separator = document.createElement("span");
+      separator.classList.add("separator");
+      span.insertAdjacentElement("afterend", separator);
+    }
+  });
+
+  const actions3Elmt = document.getElementById("actions3");
+  const action3Spans = actions3Elmt?.querySelectorAll(".action");
+
+  action3Spans?.forEach((span, index) => {
+    if (index < action3Spans.length - 1) {
+      const separator = document.createElement("span");
+      separator.classList.add("separator");
+      span.insertAdjacentElement("afterend", separator);
+    }
+  });
+});
+const clicked = (action: any) => {
+  if (action.canBuy) emits("select", action);
+};
+const emits = defineEmits<{
+  (event: "select", data: any): void;
+}>();
+</script>
 
 <template>
   <div class="size-full rounded-3xl ml-2" id="backgroundAction">
     <div class="grid h-[100%] w-[100%]" id="actions">
       <div id="actions1" class="grid grid-cols-11">
         <div></div>
-        <span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 32 32"
-            version="1.1"
-          >
-            <path
-              d="M0 16h4l12-13.696 12 13.696h4l-13.984-16h-4zM4 32h8v-9.984q0-0.832 0.576-1.408t1.44-0.608h4q0.8 0 1.408 0.608t0.576 1.408v9.984h8v-13.408l-12-13.248-12 13.248v13.408zM26.016 6.112l4 4.576v-8.672h-4v4.096z"
-            />
-          </svg>
-        </span>
-        <span class="separator"></span>
         <span
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 32 32"
-            version="1.1"
-          >
-            <path
-              d="M0 16h4l12-13.696 12 13.696h4l-13.984-16h-4zM4 32h8v-9.984q0-0.832 0.576-1.408t1.44-0.608h4q0.8 0 1.408 0.608t0.576 1.408v9.984h8v-13.408l-12-13.248-12 13.248v13.408zM26.016 6.112l4 4.576v-8.672h-4v4.096z"
-            />
-          </svg>
+          v-for="action in actions1"
+          @click="clicked(action)"
+          class="action"
+          :class="
+            action.buyed
+              ? 'cursor-default'
+              : action.canBuy
+              ? 'cursor-pointer'
+              : 'disabled opacity-50 cursor-not-allowed	'
+          "
+        >
+          <div
+            :class="
+              selectedId === action.id
+                ? 'text-cyan-300'
+                : action.buyed
+                ? 'text-green-500'
+                : action.canBuy
+                ? 'text-slate-100'
+                : 'text-red-400'
+            "
+            v-html="action.svg"
+          ></div>
         </span>
-        <span class="separator"></span>
-        <span
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 32 32"
-            version="1.1"
-          >
-            <path
-              d="M0 16h4l12-13.696 12 13.696h4l-13.984-16h-4zM4 32h8v-9.984q0-0.832 0.576-1.408t1.44-0.608h4q0.8 0 1.408 0.608t0.576 1.408v9.984h8v-13.408l-12-13.248-12 13.248v13.408zM26.016 6.112l4 4.576v-8.672h-4v4.096z"
-            />
-          </svg>
-        </span>
-        <span class="separator"></span>
-        <span
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 32 32"
-            version="1.1"
-          >
-            <path
-              d="M0 16h4l12-13.696 12 13.696h4l-13.984-16h-4zM4 32h8v-9.984q0-0.832 0.576-1.408t1.44-0.608h4q0.8 0 1.408 0.608t0.576 1.408v9.984h8v-13.408l-12-13.248-12 13.248v13.408zM26.016 6.112l4 4.576v-8.672h-4v4.096z"
-            />
-          </svg>
-        </span>
-        <span class="separator"></span>
-        <span
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 32 32"
-            version="1.1"
-          >
-            <path
-              d="M0 16h4l12-13.696 12 13.696h4l-13.984-16h-4zM4 32h8v-9.984q0-0.832 0.576-1.408t1.44-0.608h4q0.8 0 1.408 0.608t0.576 1.408v9.984h8v-13.408l-12-13.248-12 13.248v13.408zM26.016 6.112l4 4.576v-8.672h-4v4.096z"
-            />
-          </svg>
-        </span>
+        <div></div>
       </div>
       <div id="actions2" class="grid grid-cols-11">
         <div></div>
-        <span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 32 32"
-            version="1.1"
-          >
-            <path
-              d="M0 16h4l12-13.696 12 13.696h4l-13.984-16h-4zM4 32h8v-9.984q0-0.832 0.576-1.408t1.44-0.608h4q0.8 0 1.408 0.608t0.576 1.408v9.984h8v-13.408l-12-13.248-12 13.248v13.408zM26.016 6.112l4 4.576v-8.672h-4v4.096z"
-            />
-          </svg>
-        </span>
-        <span class="separator"></span>
         <span
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 32 32"
-            version="1.1"
-          >
-            <path
-              d="M0 16h4l12-13.696 12 13.696h4l-13.984-16h-4zM4 32h8v-9.984q0-0.832 0.576-1.408t1.44-0.608h4q0.8 0 1.408 0.608t0.576 1.408v9.984h8v-13.408l-12-13.248-12 13.248v13.408zM26.016 6.112l4 4.576v-8.672h-4v4.096z"
-            />
-          </svg>
+          v-for="action in actions2"
+          @click="clicked(action)"
+          class="action"
+          :class="
+            action.buyed
+              ? 'cursor-default'
+              : action.canBuy
+              ? 'cursor-pointer'
+              : 'disabled opacity-50 cursor-not-allowed	'
+          "
+        >
+          <div
+            :class="
+              selectedId === action.id
+                ? 'text-cyan-300'
+                : action.buyed
+                ? 'text-green-500'
+                : action.canBuy
+                ? 'text-slate-100'
+                : 'text-red-400'
+            "
+            v-html="action.svg"
+          ></div>
         </span>
-        <span class="separator"></span>
-        <span
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 32 32"
-            version="1.1"
-          >
-            <path
-              d="M0 16h4l12-13.696 12 13.696h4l-13.984-16h-4zM4 32h8v-9.984q0-0.832 0.576-1.408t1.44-0.608h4q0.8 0 1.408 0.608t0.576 1.408v9.984h8v-13.408l-12-13.248-12 13.248v13.408zM26.016 6.112l4 4.576v-8.672h-4v4.096z"
-            />
-          </svg>
-        </span>
-        <span class="separator"></span>
-        <span
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 32 32"
-            version="1.1"
-          >
-            <path
-              d="M0 16h4l12-13.696 12 13.696h4l-13.984-16h-4zM4 32h8v-9.984q0-0.832 0.576-1.408t1.44-0.608h4q0.8 0 1.408 0.608t0.576 1.408v9.984h8v-13.408l-12-13.248-12 13.248v13.408zM26.016 6.112l4 4.576v-8.672h-4v4.096z"
-            />
-          </svg>
-        </span>
-        <span class="separator"></span>
-        <span
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 32 32"
-            version="1.1"
-          >
-            <path
-              d="M0 16h4l12-13.696 12 13.696h4l-13.984-16h-4zM4 32h8v-9.984q0-0.832 0.576-1.408t1.44-0.608h4q0.8 0 1.408 0.608t0.576 1.408v9.984h8v-13.408l-12-13.248-12 13.248v13.408zM26.016 6.112l4 4.576v-8.672h-4v4.096z"
-            />
-          </svg>
-        </span>
+        <div></div>
       </div>
       <div id="actions3" class="grid grid-cols-11">
         <div></div>
-        <span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 32 32"
-            version="1.1"
-          >
-            <path
-              d="M0 16h4l12-13.696 12 13.696h4l-13.984-16h-4zM4 32h8v-9.984q0-0.832 0.576-1.408t1.44-0.608h4q0.8 0 1.408 0.608t0.576 1.408v9.984h8v-13.408l-12-13.248-12 13.248v13.408zM26.016 6.112l4 4.576v-8.672h-4v4.096z"
-            />
-          </svg>
-        </span>
-        <span class="separator"></span>
         <span
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 32 32"
-            version="1.1"
-          >
-            <path
-              d="M0 16h4l12-13.696 12 13.696h4l-13.984-16h-4zM4 32h8v-9.984q0-0.832 0.576-1.408t1.44-0.608h4q0.8 0 1.408 0.608t0.576 1.408v9.984h8v-13.408l-12-13.248-12 13.248v13.408zM26.016 6.112l4 4.576v-8.672h-4v4.096z"
-            />
-          </svg>
+          v-for="action in actions3"
+          @click="clicked(action)"
+          class="action"
+          :class="
+            action.buyed
+              ? 'cursor-default'
+              : action.canBuy
+              ? 'cursor-pointer'
+              : 'disabled opacity-50 cursor-not-allowed	'
+          "
+        >
+          <div
+            :class="
+              selectedId === action.id
+                ? 'text-cyan-300'
+                : action.buyed
+                ? 'text-green-500'
+                : action.canBuy
+                ? 'text-slate-100'
+                : 'text-red-400'
+            "
+            v-html="action.svg"
+          ></div>
         </span>
-        <span class="separator"></span>
-        <span
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 32 32"
-            version="1.1"
-          >
-            <path
-              d="M0 16h4l12-13.696 12 13.696h4l-13.984-16h-4zM4 32h8v-9.984q0-0.832 0.576-1.408t1.44-0.608h4q0.8 0 1.408 0.608t0.576 1.408v9.984h8v-13.408l-12-13.248-12 13.248v13.408zM26.016 6.112l4 4.576v-8.672h-4v4.096z"
-            />
-          </svg>
-        </span>
-        <span class="separator"></span>
-        <span
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 32 32"
-            version="1.1"
-          >
-            <path
-              d="M0 16h4l12-13.696 12 13.696h4l-13.984-16h-4zM4 32h8v-9.984q0-0.832 0.576-1.408t1.44-0.608h4q0.8 0 1.408 0.608t0.576 1.408v9.984h8v-13.408l-12-13.248-12 13.248v13.408zM26.016 6.112l4 4.576v-8.672h-4v4.096z"
-            />
-          </svg>
-        </span>
-        <span class="separator"></span>
-        <span
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 32 32"
-            version="1.1"
-          >
-            <path
-              d="M0 16h4l12-13.696 12 13.696h4l-13.984-16h-4zM4 32h8v-9.984q0-0.832 0.576-1.408t1.44-0.608h4q0.8 0 1.408 0.608t0.576 1.408v9.984h8v-13.408l-12-13.248-12 13.248v13.408zM26.016 6.112l4 4.576v-8.672h-4v4.096z"
-            />
-          </svg>
-        </span>
+        <div></div>
       </div>
     </div>
   </div>
@@ -226,7 +181,7 @@
 }
 
 #actions3 span:not(.separator) {
-  @apply bg-slate-500 text-white items-center w-[100%] h-[70%] justify-center flex text-2xl mask mask-circle;
+  @apply bg-slate-500 text-white items-center w-[100%] h-[50%] justify-center flex text-2xl mask mask-circle;
 }
 
 #actions svg {
