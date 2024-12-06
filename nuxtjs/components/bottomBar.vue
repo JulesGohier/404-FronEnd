@@ -5,6 +5,8 @@ import RetroButton from "~/components/RetroButton.vue";
 const emits = defineEmits<{
   (e: "over", data: string):void
 }>()
+
+
 </script>
 
 <template>

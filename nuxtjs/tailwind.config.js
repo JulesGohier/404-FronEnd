@@ -23,6 +23,7 @@ module.exports = {
     },
     backgroundImage: {
       'backgroundBG': "url('/assets/images/background.jpg')",
+      'backgroundBG2': "url('/assets/images/background2.jpg')",
     },
     extend: {
       colors: {
