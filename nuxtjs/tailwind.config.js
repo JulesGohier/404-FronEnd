@@ -21,6 +21,9 @@ module.exports = {
     fontFamily: {
       Silkscreen: ['Silkscreen'],
     },
+    backgroundImage: {
+      'backgroundBG': "url('/assets/images/background.jpg')",
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",

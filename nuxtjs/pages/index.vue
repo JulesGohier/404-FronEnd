@@ -1,6 +1,6 @@
 <template>
   <div class="h-[100vh]">
-    <div class="bg-blue-800 h-[80%] flex flex-col gap-20 justify-center items-center">
+    <div class="bg-backgroundBG bg-no-repeat bg-cover h-[80%] flex flex-col gap-20 justify-center items-center">
       <h1 class="font-Silkscreen text-7xl text-white">
         <span v-if="hoveredButton === 'Jeu'">></span>
         Jeu

@@ -8,7 +8,7 @@ const emits = defineEmits<{
 </script>
 
 <template>
-  <div class="bg-yellow-100 h-[20%] flex gap-14 justify-center items-center">
+  <div class="bg-blue-200 h-[20%] flex gap-14 justify-center items-center">
     <RetroButton @click="navigateTo('/')" color-main="bg-red-400" color-shadow="shadow-red-900" text="Accueil" @mouseover="emits('over', 'Jeu')"
                  @mouseleave="emits('over', 'Jeu')"><svg style="transform: rotateX(30deg)" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M43.486 24.6621L25.486 4.66205C24.728 3.81805 23.272 3.81805 22.514 4.66205L4.51399 24.6621C4.25535 24.9495 4.08558 25.3058 4.02524 25.6877C3.96489 26.0696 4.01656 26.4609 4.17399 26.8141C4.49399 27.5361 5.20999 28.0001 5.99999 28.0001H9.99999V42.0001C9.99999 42.5305 10.2107 43.0392 10.5858 43.4143C10.9608 43.7893 11.4696 44.0001 12 44.0001H18C18.5304 44.0001 19.0391 43.7893 19.4142 43.4143C19.7893 43.0392 20 42.5305 20 42.0001V34.0001H28V42.0001C28 42.5305 28.2107 43.0392 28.5858 43.4143C28.9608 43.7893 29.4696 44.0001 30 44.0001H36C36.5304 44.0001 37.0391 43.7893 37.4142 43.4143C37.7893 43.0392 38 42.5305 38 42.0001V28.0001H42C42.3873 28.0017 42.7668 27.8906 43.0921 27.6803C43.4173 27.4701 43.6744 27.1697 43.832 26.8158C43.9895 26.462 44.0407 26.0699 43.9792 25.6875C43.9178 25.3051 43.7464 24.9488 43.486 24.6621Z" fill="#991B1B"/>
@@ -28,7 +28,3 @@ const emits = defineEmits<{
     </svg></RetroButton>
   </div>
 </template>
-
-<style scoped>
-
-</style>
