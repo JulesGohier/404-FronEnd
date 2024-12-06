@@ -14,6 +14,13 @@ module.exports = {
         "2xl": "1400px",
       },
     },
+    boxShadow: {
+      custom : "0px 10px 0 var(--border)",
+      none: "0 0 #0000;"
+    },
+    fontFamily: {
+      Silkscreen: ['Silkscreen'],
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
