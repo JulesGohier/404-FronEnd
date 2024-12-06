@@ -11,7 +11,13 @@
   },
   "dependencies": {
     "nuxt": "^3.14.1592",
+    "tailwind-merge": "^2.5.5",
+    "tailwindcss-animate": "^1.0.7",
     "vue": "latest",
     "vue-router": "latest"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.12.2",
+    "typescript": "^5.7.2"
   }
 }
