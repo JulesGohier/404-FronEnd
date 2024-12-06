@@ -240,7 +240,7 @@ const start = () => {
 <template>
   <div
     v-if="startgame == true"
-    class="w-screen h-screen relative flex justify-center items-center bg-backgroundBG2 bg-cover bg-center bg-no-repeat"
+    class="w-screen h-screen relative flex justify-center items-center bg-backgroundBG2 bg-cover bg-center bg-no-repeat overflow-hidden"
   >
     <div class="absolute inset-0 backdrop-blur-sm bg-black/40"></div>
 
@@ -286,7 +286,10 @@ const start = () => {
       </div>
     </div>
   </div>
-  <div class="grid grid-cols-6 h-[100vh] w-[100vw] gap-10">
+  <div
+    v-else
+    class="grid grid-cols-6 h-[100vh] w-[100vw] gap-10 overflow-hidden"
+  >
     <div id="body" class="grid col-span-6 h-[80vh] w-full gap-4">
       <div id="header" class="grid col-span-6 grid-cols-6 h-[10vh] gap-4">
         <div class="col-span-6 w-full flex items-center justify-center">

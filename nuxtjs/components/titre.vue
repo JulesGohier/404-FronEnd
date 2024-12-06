@@ -8,6 +8,6 @@
 
 <style>
 .title {
-  @apply bg-slate-100 w-[80%] h-[90%] items-center justify-center flex uppercase text-2xl font-extrabold text-cyan-700 shadow-2xl shadow-black;
+  @apply bg-slate-100 w-[80%] h-[90%] items-center justify-center flex uppercase text-2xl font-extrabold text-cyan-700;
 }
 </style>

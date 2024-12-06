@@ -193,6 +193,6 @@ span.separator {
 }
 
 #backgroundAction {
-  @apply bg-slate-600 shadow-lg shadow-black;
+  @apply bg-slate-600;
 }
 </style>
