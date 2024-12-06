@@ -1,11 +1,11 @@
-const animate = require("tailwindcss-animate")
+const animate = require("tailwindcss-animate");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
   safelist: ["dark"],
   prefix: "",
-  
+
   theme: {
     container: {
       center: true,
@@ -16,7 +16,9 @@ module.exports = {
     },
     boxShadow: {
       custom : "0px 10px 0 var(--border)",
-      none: "0 0 #0000;"
+      none: "0 0 #0000;",
+      lg: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);",
+      "2xl": "0 25px 50px -12px rgb(0 0 0 / 0.25);"
     },
     fontFamily: {
       Silkscreen: ['Silkscreen'],
@@ -78,10 +80,10 @@ module.exports = {
         },
         "collapsible-down": {
           from: { height: 0 },
-          to: { height: 'var(--radix-collapsible-content-height)' },
+          to: { height: "var(--radix-collapsible-content-height)" },
         },
         "collapsible-up": {
-          from: { height: 'var(--radix-collapsible-content-height)' },
+          from: { height: "var(--radix-collapsible-content-height)" },
           to: { height: 0 },
         },
       },
@@ -93,5 +95,5 @@ module.exports = {
       },
     },
   },
-  plugins: [animate],
-}
+  plugins: [animate, require("daisyui")],
+};
